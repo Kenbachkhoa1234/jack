@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>VCB Digital</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f3f6fb;
+}
+
+/* LOGIN */
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #00a65a;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg,#00c853,#00e676);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* DASHBOARD */
+#dashboard {
+    display: none;
+}
+
+.header {
+    background: linear-gradient(135deg,#00894d,#00b36b);
+    color: white;
+    padding: 20px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.balance {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.container {
+    padding: 20px;
+    margin-top: -30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* POPUP */
+#popup {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from {transform: scale(0.5); opacity:0;}
+    to {transform: scale(1); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+    <div class="login-box">
+        <h2>VCB Digital</h2>
+        <input class="input" placeholder="Tên đăng nhập">
+        <input class="input" type="password" placeholder="Mật khẩu">
+        <button onclick="login()">Đăng nhập</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+
+<div class="header">
+    <h3>Xin chào, Khánh</h3>
+    <div class="balance">Số dư: 12,500,000đ</div>
+</div>
+
+<div class="container">
+<div class="card">
+    <h3>Xác nhận giao dịch</h3>
+
+    <input class="input" placeholder="Số tài khoản">
+    <input class="input" placeholder="OTP">
+
+    <button onclick="fake()">Xác nhận</button>
+</div>
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup">
+    <div class="popup-box">
+        <h2> Dính rồi!</h2>
+        <p>Đây là demo Clickjacking :)))</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+<script>
+function login(){
+    document.getElementById("login").style.display="none";
+    document.getElementById("dashboard").style.display="block";
+}
+
+function fake(){
+    document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>
